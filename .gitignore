@@ -9,7 +9,7 @@ __pycache__/
 
 # Django specific
 *.log
-db.sqlite3
+bib.sqlite3
 /media
 /staticfiles
 
