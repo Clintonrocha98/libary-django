@@ -40,22 +40,22 @@ O projeto consiste em três modelos principais:
 
 3. Execute as migrações:
    ```
-   python manage.py migrate
+   python ./biblioteca/manage.py migrate
    ```
 
 4. Inicie o servidor:
    ```
-   python manage.py runserver
+   python ./biblioteca/manage.py runserver
    ```
 
 ## Mock de dados no banco
 
 ```bash
-python manage.py populate_db
+python ./biblioteca/manage.py populate_db
 ```
 
 ## Teste
 
 ```bash
-python manage.py test
+python ./biblioteca/manage.py test
 ```
