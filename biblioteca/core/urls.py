@@ -1,7 +1,8 @@
-from django.urls import path
-from . import views
+from django.contrib import admin
+from django.urls import include, path
+from biblioteca.urls import urlpatterns as core_urls
 
 urlpatterns = [
-    path("livros/", views.livro_list_create, name="livros-list-create"),
-    path("livros/<int:pk>/", views.livro_detail, name="livro-detail"),
+    path('admin/', admin.site.urls),
+    path('', include(core_urls))
 ]

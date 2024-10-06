@@ -21,7 +21,7 @@ O projeto consiste em três modelos principais:
 ## Endpoints da API
 
 - `GET /livros/`: Lista todos os livros
-- `POST /livros/`: Cria um novo livro
+- `POST /livros/create`: Cria um novo livro
 - `GET /livros/<id>/`: Retorna detalhes de um livro específico
 - `PUT /livros/<id>/`: Atualiza um livro específico
 - `DELETE /livros/<id>/`: Deleta um livro específico
@@ -48,24 +48,14 @@ O projeto consiste em três modelos principais:
    python manage.py runserver
    ```
 
-## Uso
+## Mock de dados no banco
 
-Para usar a API, você pode fazer requisições HTTP para os endpoints listados acima. Por exemplo:
+```bash
+python manage.py populate
+```
 
-```python
-import requests
+## Teste
 
-# Listar todos os livros
-response = requests.get('http://localhost:8000/livros/')
-print(response.json())
-
-# Criar um novo livro
-novo_livro = {
-    'titulo': 'Novo Livro',
-    'autor': 1,  # ID do autor
-    'categoria': 1,  # ID da categoria
-    'publicado_em': '2024-08-17'
-}
-response = requests.post('http://localhost:8000/livros/', json=novo_livro)
-print(response.json())
+```bash
+python manage.py test
 ```
