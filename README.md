@@ -51,7 +51,7 @@ O projeto consiste em três modelos principais:
 ## Mock de dados no banco
 
 ```bash
-python manage.py populate
+python manage.py populate_db
 ```
 
 ## Teste
