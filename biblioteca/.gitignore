@@ -20,15 +20,9 @@ db.sqlite3
 .env
 
 # Coverage reports
-htmlcov/
-.tox/
 .coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
+htmlcov/*
+!htmlcov/index.html
 
 # MyPy
 .mypy_cache/
