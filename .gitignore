@@ -20,7 +20,6 @@ bib.sqlite3
 .env
 
 # Coverage reports
-htmlcov/
 .tox/
 .coverage
 .coverage.*

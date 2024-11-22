@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from .models import Categoria, Autor, Livro
+from .models import Categoria, Autor, Livro, Colecao
+from django.contrib.auth.models import User
 
 
 class CategoriaSerializer(serializers.Serializer):
@@ -47,3 +48,20 @@ class LivroSerializer(serializers.Serializer):
         )
         instance.save()
         return instance
+    
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'email']
+
+class ColecaoSerializer(serializers.ModelSerializer):
+    livros = serializers.PrimaryKeyRelatedField(many=True, queryset=Livro.objects.all()) 
+    colecionador = UserSerializer(read_only=True) 
+    total_livros = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Colecao
+        fields = ['id', 'nome', 'descricao', 'livros', 'colecionador', 'total_livros']
+
+    def get_total_livros(self, obj):
+        return obj.livros.count()
